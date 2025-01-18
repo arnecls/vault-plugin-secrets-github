@@ -44,7 +44,7 @@
           name = "vault-plugin-secrets-github";
           package = "github.com/martinbaillie/${name}";
           rev = self.rev or "dirty";
-          ver = if self ? "dirtyRev" then self.dirtyShortRev else self.shortRev;
+          ver = "v0.0.0-" + (if self ? "dirtyRev" then self.dirtyShortRev else self.shortRev);
           date = self.lastModifiedDate or "19700101";
           go = pkgs.go_1_24;
         in
@@ -69,6 +69,7 @@
               "-extld ld"
               "-extldflags -static"
               "-X ${package}/github.projectName=${name}"
+              "-X ${package}/github.projectVersion=${ver}"
               "-X ${package}/github.projectDocs=https://${package}"
               "-X github.com/prometheus/common/version.BuildDate=${date}"
               "-X github.com/prometheus/common/version.Revision=${rev}"
