@@ -69,7 +69,7 @@
               "-extld ld"
               "-extldflags -static"
               "-X ${package}/github.projectName=${name}"
-              "-X ${package}/github.projectVersion=${ver}"
+              "-X ${package}/github.PluginVersion=${ver}"
               "-X ${package}/github.projectDocs=https://${package}"
               "-X github.com/prometheus/common/version.BuildDate=${date}"
               "-X github.com/prometheus/common/version.Revision=${rev}"
