@@ -45,8 +45,8 @@ func Factory(ctx context.Context, conf *logical.BackendConfig) (logical.Backend,
 	b := new(backend)
 
 	b.Backend = &framework.Backend{
-		Help:        strings.TrimSpace(backendHelp),
-		BackendType: logical.TypeLogical,
+		Help:           strings.TrimSpace(backendHelp),
+		BackendType:    logical.TypeLogical,
 		RunningVersion: PluginVersion,
 		PathsSpecial: &logical.Paths{
 			Unauthenticated: []string{pathPatternInfo, pathPatternMetrics},
@@ -74,8 +74,7 @@ func Factory(ctx context.Context, conf *logical.BackendConfig) (logical.Backend,
 			// NOTE: Unfortunately GitHub has no mechanism for renewing tokens.
 			// Renew:
 		}},
-		Invalidate:     b.Invalidate,
-		RunningVersion: projectVersion,
+		Invalidate: b.Invalidate,
 	}
 
 	if conf == nil {
